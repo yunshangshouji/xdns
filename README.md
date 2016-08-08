@@ -17,11 +17,8 @@ XDNS 手机修改hosts解决方案
 
 
 ###3. 示例
-#	所有以xxx.com结束的域名都指向到 127.0.0.1
-127.0.0.1	xxx.com 
+127.0.0.1	xxx.com #所有以xxx.com结束的域名都指向到 127.0.0.1
 
-#	所有请求都指向到 127.0.0.1
-127.0.0.1	* 
+127.0.0.1	*  #所有请求都指向到 127.0.0.1
 
-#	like "xxx.baidu.com" "xxx.github.com"
-192.168.1.100	xxx.*.*
+192.168.1.100	xxx.*.*    #like "xxx.baidu.com" "xxx.github.com"
