@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="../bin/ehcache.xsd"
+    updateCheck="false"> 
+    <defaultCache overflowToDisk="false" eternal="false" maxElementsInMemory="10000000"/> 
+    <!-- <diskStore path="c:/cache" />  -->
+    
+    <!-- 1 day -->
+    <cache name="DNS" maxElementsInMemory="100000" timeToLiveSeconds="86400" />
+    
+     
+</ehcache>

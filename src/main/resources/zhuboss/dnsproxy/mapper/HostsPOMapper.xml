@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zhuboss.dnsproxy.mapper.HostsPOMapper" >
+  <resultMap id="BaseResultMap" type="zhuboss.dnsproxy.po.HostsPO" >
+    <id column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="hosts" property="hosts" jdbcType="VARCHAR" />
+    <result column="main_date" property="mainDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+
+  <select id="selectByPK" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select ip, hosts, main_date
+    from hosts
+    where ip = #{ip,jdbcType=VARCHAR}
+  </select>
+  
+
+  <select id="selectByClause" resultMap="BaseResultMap" parameterType="zhuboss.framework.mybatis.query.QueryClauseBuilder" >
+    select ip, hosts, main_date
+    	from hosts
+    <if test=" '' != sql" >
+      where ${sql}
+    </if>
+    <if test="orderByClause != null and orderByClause.size > 0" >
+      order by 
+      <foreach collection="orderByClause" item="orderBy" separator="," >
+        ${orderBy}
+      </foreach>
+    </if>
+    <if test=" null != start" > limit ${start},${limit}</if>
+  </select>
+  
+
+  <select id="selectCountByClause" resultType="Integer" parameterType="zhuboss.framework.mybatis.query.QueryClauseBuilder" >
+    SELECT COUNT(*) 
+	FROM	hosts
+    <if test=" '' != sql" >
+ where ${sql}
+ </if>
+
+  </select>
+  
+
+  <insert id="insert" parameterType="zhuboss.dnsproxy.po.HostsPO" >
+    insert into hosts (ip, hosts, main_date
+      )
+    values (#{ip,jdbcType=VARCHAR}, #{hosts,jdbcType=VARCHAR}, #{mainDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  
+
+  <update id="updateByPK" parameterType="zhuboss.dnsproxy.po.HostsPO" >
+    update hosts
+    set hosts = #{hosts,jdbcType=VARCHAR},
+      main_date = #{mainDate,jdbcType=TIMESTAMP}
+    where ip = #{ip,jdbcType=VARCHAR}
+  </update>
+  
+
+  <delete id="deleteByPK" parameterType="java.lang.String" >
+    delete from hosts
+    where ip = #{ip,jdbcType=VARCHAR}
+  </delete>
+  
+
+  <delete id="deleteByClause" parameterType="zhuboss.framework.mybatis.query.QueryClauseBuilder" >
+    delete 	from hosts
+    <if test=" '' != sql" >
+      where ${sql}
+    </if>
+
+  </delete>
+</mapper>
