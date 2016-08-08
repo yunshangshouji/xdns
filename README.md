@@ -12,4 +12,16 @@ XDNS 手机修改hosts解决方案
 1) 通过网页的方式在线配置，保存成功后，我们会记录配置用户的公网IP，所有来自己此IP的DNS请求将会应用此配置。
 2) 设置手机Wifi的dns地址, 可以参考
 注意，如果公网IP发生变化后，配置将失效，需要重新配置。
+![image](https://github.com/zhuzhengquan/xdns/blob/master/files/xdns.png)
 在线应用访问：http://xdns.pc5s.cn
+
+
+###3. 示例
+#	所有以xxx.com结束的域名都指向到 127.0.0.1
+127.0.0.1	xxx.com 
+
+#	所有请求都指向到 127.0.0.1
+127.0.0.1	* 
+
+#	like "xxx.baidu.com" "xxx.github.com"
+192.168.1.100	xxx.*.*
